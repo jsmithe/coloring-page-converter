@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coloring-page-converter"
+version = "0.1.0"
+description = "Convert existing illustrations into black-and-white coloring pages using classical image processing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.24", "opencv-python-headless>=4.8"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+coloring-page = "coloring_page_converter.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["coloring_page_converter*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
